@@ -11,7 +11,7 @@ jobs:
         uses: dabao1955/kernel_build_action@main
         with:
           # 1. Provide the official kernel source URL for your phone's brand/chip
-          kernel-url: https://github.com
+          kernel-url: https://github.com/zlm324/android_kernel_xiaomi_msm8953_ksu
           kernel-branch: lineage-20.0 # Put your active kernel branch
           config: msm8953-perf_defconfig # Put your specific device defconfig name
           arch: arm64
