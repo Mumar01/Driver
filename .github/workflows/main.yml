@@ -20,9 +20,9 @@ jobs:
       env:
         NAME: Loganysl
       with:
-        arch: arm64/arm32
+        arch: arm64
         compiler: gcc/12
-        defconfig: tissot_defconfig
+        defconfig: msm8953-perf_defconfig
         image: Image.gz-dtb
 
     - name: Upload Kernel and Module
