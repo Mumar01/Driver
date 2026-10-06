@@ -12,12 +12,21 @@ jobs:
         with:
           # 1. Provide the official kernel source URL for your phone's brand/chip
           kernel-url: https://github.com
-          kernel-branch: android-12 # Put your active kernel branch
+          kernel-branch: lineage-20.0 # Put your active kernel branch
           config: msm8953-perf_defconfig # Put your specific device defconfig name
           arch: arm64
           android-version: 12
           
           # 2. Tell the system to auto-inject your custom out-of-tree driver module
+        - name: Inject and Randomize MemKernel
+
+        
+        run: |
+          git clone https://github.com kernel-source/drivers/memkernel
+          cd kernel-source/drivers/memkernel
+          # Run the setup script if configuring custom/randomized naming flags
+          echo "obj-y += memkernel/" >> ../Makefile
+          
           # (Ensure you commit your memkernel source directory to this fork repository first)
           # Alternatively, you can write bash commands in a step right before 'Build Kernel' 
           # to git clone your memkernel folder straight into the kernel/drivers/ folder.
